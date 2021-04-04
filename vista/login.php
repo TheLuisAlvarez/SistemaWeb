@@ -25,17 +25,17 @@
       <p class="login-box-msg"><img src="plantilla/dist/img/login.svg" alt="" width="50%" height="50%"></p>
 
       <!-- <form action="../../index3.html" method="post"> -->
-      <form method="post">
+      <!-- <form method="post"> -->
         <div class="input-group mb-3">
           <input type="text" id="usuario" class="form-control" placeholder="Ingresar usuario">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" id="password" class="form-control" placeholder="Ingresar contraseña">
+          <input type="password" id="contrasena" class="form-control" placeholder="Ingresar contraseña">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -57,7 +57,7 @@
           </div>
           <!-- /.col -->
         </div>
-      </form>
+      <!-- </form> -->
 
     </div>
     <!-- /.card-body -->
@@ -73,5 +73,6 @@
 <!-- AdminLTE App -->
 <script src="plantilla/dist/js/adminlte.min.js"></script>
 <script src="../js/console_usuario.js" type="text/javascript"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 </html>

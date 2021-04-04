@@ -1,1 +1,4 @@
-<h1>Estas en la página prueba</h1>
+<?php
+    $con = password_hash('123456', PASSWORD_DEFAULT,['cost'=>10]);
+    echo $con;
+?>
