@@ -214,9 +214,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a onclick="cargar_contenido('contenido_principal','prueba.php')" class="nav-link active">
+                <a onclick="cargar_contenido('contenido_principal','vistaMantenimientoRol.php')" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Usuarios</p>
+                  <p>rol</p>
                 </a>
               </li>
             </ul>
@@ -232,19 +232,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Página principal</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item active">Página principal</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+      
     </div>
     <!-- /.content-header -->
 
