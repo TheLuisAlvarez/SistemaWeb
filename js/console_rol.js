@@ -36,15 +36,15 @@ function listarRol() {
     langueage: idioma_espanol,
     select: true,
   });
-  t_rol.on("draw.dt", function () {
-    var PageInfo = $("#tabla_rol").DateTable().page.info();
-    t_rol
-      .columns(0, { page: "current" })
-      .nodes()
-      .each(function (cell, i) {
-        cell.innerHTML = i + 1 + PageInfo.start;
-      });
-  });
+//   t_rol.on("draw.dt", function () {
+//     var PageInfo = $("#tabla_rol").DateTable().page.info();
+//     t_rol
+//       .columns(0, { page: "current" })
+//       .nodes()
+//       .each(function (cell, i) {
+//         cell.innerHTML = i + 1 + PageInfo.start;
+//       });
+//   });
 }
 
 function registrarRol() {
@@ -91,7 +91,7 @@ function registrarRol() {
       );
     }
   });
-  document.getElementById("tabla_usuario_filter").style.display = "none";
+  document.getElementById("tabla_rol_filter").style.display = "none";
 
   $("input.global_filter").on("keyup click", function () {
     filterGlobal();
