@@ -14,11 +14,21 @@
             if ($consulta = $this->conexion->conexion->query($sql)){
                 while($consulta_vu = mysqli_fetch_assoc($consulta)){
                         $arreglo["data"][] = $consulta_vu;
-
                     }
                 return $arreglo;
                 $this->conexion->cerrar();
             }
         }
+
+        function Registrar_Rol($rol,$estado){
+            $sql = "call SP_REGISTRAR_ROL('$rol','$estado')";
+            if ($consulta = $this->conexion->conexion->query($sql)) {
+                if ($row = mysqli_fetch_array($consulta)) {
+                        return $id= trim($row[0]);
+                }
+                $this->conexion->cerrar();
+            }
+        }
+    
     }
 ?>

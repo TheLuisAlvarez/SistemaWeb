@@ -34,6 +34,11 @@
   <link rel="stylesheet" href="plantilla/plugins/summernote/summernote-bs4.min.css">
   <!-- Datatables -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/b-1.7.0/b-html5-1.7.0/r-2.2.7/sl-1.3.3/datatables.min.css"/>
+  <!-- Select2 -->
+  <link rel="stylesheet" href="plantilla/plugins/select2/css/select2.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="plantilla/plugins/sweetalert2/sweetalert2.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -392,7 +397,41 @@
 <!-- <script src="plantilla/dist/js/pages/dashboard.js"></script> -->
 <!-- Datatables -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/b-1.7.0/b-html5-1.7.0/r-2.2.7/sl-1.3.3/datatables.min.js"></script>
+<!-- Select2 -->
+<script src="plantilla/plugins/select2/js/select2.js"></script>
+<!-- SweetAlert2 -->
+<script src="plantilla/plugins/sweetalert2/sweetalert2.min.js"></script>
+
 <script>
+
+var idioma_espanol = {
+			select: {
+			rows: "%d fila seleccionada"
+			},
+			"sProcessing":     "Procesando...",
+			"sLengthMenu":     "Mostrar _MENU_ registros",
+			"sZeroRecords":    "No se encontraron resultados",
+			"sEmptyTable":     "Ning&uacute;n dato disponible en esta tabla",
+			"sInfo":           "Registros del (_START_ al _END_) total de _TOTAL_ registros",
+			"sInfoEmpty":      "Registros del (0 al 0) total de 0 registros",
+			"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+			"sInfoPostFix":    "",
+			"sSearch":         "Buscar:",
+			"sUrl":            "",
+			"sInfoThousands":  ",",
+			"sLoadingRecords": "<b>No se encontraron datos</b>",
+			"oPaginate": {
+					"sFirst":    "Primero",
+					"sLast":     "Último",
+					"sNext":     "Siguiente",
+					"sPrevious": "Anterior"
+			},
+			"oAria": {
+					"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+					"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			}
+}
+
   function cargar_contenido(contenedor,contenido){
     $("#"+contenedor).load(contenido);
   }

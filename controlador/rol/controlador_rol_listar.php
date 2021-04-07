@@ -1,8 +1,7 @@
 <?php
-    require '../../modelo/modelo_rol.php'
+    require '../../modelo/modelo_rol.php';
     $MR = new Modelo_Rol();
-    $consulta = $MR->Listar_Rol();
-    echo json_encode($consulta);
+    $consulta = $MR->Listar_rol();
     if($consulta){
         echo json_encode($consulta);
     }else{
