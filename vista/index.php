@@ -32,6 +32,8 @@
   <link rel="stylesheet" href="plantilla/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plantilla/plugins/summernote/summernote-bs4.min.css">
+  <!-- Datatables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/b-1.7.0/b-html5-1.7.0/r-2.2.7/sl-1.3.3/datatables.min.css"/>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -388,7 +390,8 @@
 <script src="plantilla/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- <script src="plantilla/dist/js/pages/dashboard.js"></script> -->
-
+<!-- Datatables -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/b-1.7.0/b-html5-1.7.0/r-2.2.7/sl-1.3.3/datatables.min.js"></script>
 <script>
   function cargar_contenido(contenedor,contenido){
     $("#"+contenedor).load(contenido);
