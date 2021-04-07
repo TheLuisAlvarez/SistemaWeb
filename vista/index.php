@@ -219,6 +219,12 @@
                   <p>rol</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a onclick="cargar_contenido('contenido_principal','rol/vista_mantenimiento_rol.php')" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Rol</p>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
