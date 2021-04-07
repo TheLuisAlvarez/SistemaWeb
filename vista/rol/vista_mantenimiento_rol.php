@@ -61,9 +61,9 @@
     <div class="modal fade" id="modal_registro" role="dialog">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
-                <div class="modal-header">
-                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                <div class="modal-header d-flex justify-content-between">
                     <h4 class="modal-title"><b>Registro de Rol</b></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="col-lg-12">
@@ -77,7 +77,6 @@
                             <option value="2">INACTIVO</option>
                         </select><br><br>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-primary" onclick="registrarRol()"><i

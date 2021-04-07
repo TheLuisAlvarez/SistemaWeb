@@ -23,11 +23,20 @@
         function Registrar_Rol($rol,$estado){
             $sql = "call SP_REGISTRAR_ROL('$rol','$estado')";
             if ($consulta = $this->conexion->conexion->query($sql)) {
-                if ($row = mysqli_fetch_array($consulta)) {
+                if ($row = mysqli_fetch_array($consulta)){
                         return $id= trim($row[0]);
                 }
                 $this->conexion->cerrar();
             }
+        }
+
+        function Modificar_Estado_Rol($idrol,$estado){
+            $sql = "call SP_MODIFICAR_ESTADO_ROL('$idrol','$estado')";
+            if ($consulta = $this->conexion->conexion->query($sql)){
+                return 1;
+            }else{
+                return 0;
+           }
         }
     
     }

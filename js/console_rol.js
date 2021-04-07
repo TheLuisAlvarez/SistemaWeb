@@ -1,7 +1,7 @@
 var t_rol;
 function listarRol() {
   t_rol = $("#tabla_rol").DataTable({
-    ordering: false,
+    ordering: true,
     pageLength: 10,
     destroy: true,
     async: false,
@@ -19,15 +19,15 @@ function listarRol() {
         data: "rol_estado",
         render: function (data, type, row) {
           if (data == "ACTIVO") {
-            return "<span class='label label-success'>" + data + "</span>";
+            return "<span class='badge badge-success'>" + data + "</span>";
           } else {
-            return "<span class='label label-danger'>" + data + "</span>";
+            return "<span class='badge badge-danger'>" + data + "</span>";
           }
         },
       },
       {
         defaultContent:
-          "<button class='btn btn-danger'><i class='fas fa-ban'></i></button>",
+          "<button class='desactivar btn btn-danger'><i class='fas fa-ban'></i></button>&nbsp;<button style='font-size:13px;' type='button' class='activar btn btn-success'><i class='fa fa-check'></i></button>",
       },
     ],
     fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
@@ -62,7 +62,7 @@ function registrarRol() {
     type: "POST",
     data: {
       rol: rol,
-      estado: estado
+      estado: estado,
     },
   }).done(function (resp) {
     if (resp > 0) {
@@ -91,6 +91,87 @@ function registrarRol() {
       );
     }
   });
+  document.getElementById("tabla_usuario_filter").style.display = "none";
+
+  $("input.global_filter").on("keyup click", function () {
+    filterGlobal();
+  });
+  $("input.column_filter").on("keyup click", function () {
+    filterColumn($(this).parents("tr").attr("data-column"));
+  });
+}
+
+$("#tabla_rol").on("click", ".desactivar", function () {
+  var data = t_rol.row($(this).parents("tr")).data();
+  if (t_rol.row(this).child.isShown()) {
+    var data = t_rol.row(this).data();
+  }
+  Swal.fire({
+    title: "¿Esta seguro de desactivar el rol?",
+    text: "Una vez hecho esto el rol no estará disponible en el sistema",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si",
+  }).then((result) => {
+    if (result.value) {
+      Modificar_Estado(data.rol_id, "2");
+    }
+  });
+});
+
+$("#tabla_rol").on("click", ".activar", function () {
+  var data = t_rol.row($(this).parents("tr")).data();
+  if (t_rol.row(this).child.isShown()) {
+    var data = t_rol.row(this).data();
+  }
+  Swal.fire({
+    title: "¿Esta seguro de activar el rol?",
+    text: "Una vez hecho esto el rol estará disponible en el sistema",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Modificar_Estado(data.rol_id, "1");
+    }
+  });
+});
+
+
+function Modificar_Estado(idrol, estado) {
+    var mensaje = "";
+    if (estado == "INACTIVO") {
+      mensaje = "desactivo";
+    } else {
+      mensaje = "activo";
+    }
+    $.ajax({
+      url: "../controlador/rol/controlador_modificar_estado_rol.php",
+      type: "POST",
+      data: {
+        idrol: idrol,
+        estado: estado,
+      },
+    }).done(function (resp) {
+      if (resp > 0) {
+        Swal.fire(
+          "Mensaje de Confirmacion",
+          "El rol se " + mensaje + " con éxito",
+          "success"
+        ).then((value) => {
+          t_rol.ajax.reload();
+        });
+      }
+    });
+  }
+  
+
+function filterGlobal() {
+  $("#tabla_rol").DataTable().search($("#global_filter").val()).draw();
 }
 
 function AbrirModalRegistro() {
