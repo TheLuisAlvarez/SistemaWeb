@@ -221,7 +221,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a onclick="cargar_contenido('contenido_principal','prueba.php')" class="nav-link active">
+                <a onclick="cargar_contenido('contenido_principal','usuario/vista_mantenimiento_usuario.php')" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Usuarios</p>
                 </a>
@@ -430,7 +430,8 @@ var idioma_espanol = {
 					"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
 					"sSortDescending": ": Activar para ordenar la columna de manera descendente"
 			}
-}
+	 }
+
 
   function cargar_contenido(contenedor,contenido){
     $("#"+contenedor).load(contenido);

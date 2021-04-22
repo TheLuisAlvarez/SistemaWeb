@@ -21,5 +21,31 @@
                 }
             }
         }
+    
     }
+
+    
+    class Modelo_Usuario_Prueba{
+        private $conexion_prueba;
+
+        function __construct(){
+            require_once 'modelo_conexion_prueba.php';
+            $this -> conexion_prueba = new conexion_prueba();
+            $this -> conexion_prueba -> conectar_prueba();
+        }
+
+        function listar_usuario(){
+            $sql ="SELECT DISTINCT cod_usr, usuario from v_acceso";
+            $arreglo = array();
+            if ($consulta = $this->conexion_prueba->conexion_prueba->query($sql)) {
+                while ($consulta_VU = mysqli_fetch_assoc($consulta)) {
+                    $arreglo["data"][]=$consulta_VU;
+
+                }
+                return $arreglo;
+                $this->conexion_prueba->cerrar_prueba();
+            }
+        }
+    }
+
 ?>
