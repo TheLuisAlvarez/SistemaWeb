@@ -45,13 +45,13 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>NOMBRE</th>
+                      <th>DESCRIPCIÓN</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th>ID</th>
-                      <th>NOMBRE</th>
+                      <th>DESCRIPCIÓN</th>
                     </tr>
                   </tfoot>
                 </table>
@@ -121,5 +121,6 @@
     <script >
         $(document).ready(function(){
             listar_usuario();
+            listar_usuario_rol();
         })
     </script>
