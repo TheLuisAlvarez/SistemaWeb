@@ -59,6 +59,33 @@
                 $this->conexion_prueba->cerrar_prueba();
             }
         }
+
+        function listar_usuario_grupo($cod){
+            $sql ="SELECT DISTINCT descripcion from v_acceso where cod_usr = '$cod'";
+            $arreglo = array();
+            if ($consulta = $this->conexion_prueba->conexion_prueba->query($sql)) {
+                while ($consulta_VU = mysqli_fetch_assoc($consulta)) {
+                    $arreglo["data"][]=$consulta_VU;
+
+                }
+                return $arreglo;
+                $this->conexion_prueba->cerrar_prueba();
+            }
+        }
+
+        function listar_usuario_ventana($cod){
+            $sql ="SELECT DISTINCT title from v_acceso where cod_usr = '$cod'";
+            $arreglo = array();
+            if ($consulta = $this->conexion_prueba->conexion_prueba->query($sql)) {
+                while ($consulta_VU = mysqli_fetch_assoc($consulta)) {
+                    $arreglo["data"][]=$consulta_VU;
+
+                }
+                return $arreglo;
+                $this->conexion_prueba->cerrar_prueba();
+            }
+        }
+
     }
 
 ?>
