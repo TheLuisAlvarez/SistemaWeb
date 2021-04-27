@@ -5,6 +5,7 @@
           <!-- left column -->
           <div class="col-md-6">
           <input id="usuario" type="text" hidden>
+          <input id="grupo" type="text" hidden>
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
@@ -43,12 +44,6 @@
                       <th>DESCRIPCIÓN</th>
                     </tr>
                   </thead>
-                  <!-- <tfoot>
-                    <tr>
-                      <th>#</th>
-                      <th>DESCRIPCIÓN</th>
-                    </tr>
-                  </tfoot> -->
                 </table>
               </div>
               <!-- /.card-body -->
@@ -66,14 +61,9 @@
                         <tr>
                           <th>#</th>
                           <th>DESCRIPCIÓN</th>
+                          <th>ACCI&Oacute;N</th>
                         </tr>
                       </thead>
-                      <!-- <tfoot>
-                        <tr>
-                          <th>#</th>
-                          <th>DESCRIPCIÓN</th>
-                        </tr>
-                      </tfoot> -->
                     </table>
                   </div>
                   <!-- /.card-body -->
@@ -92,12 +82,6 @@
                           <th>DESCRIPCIÓN</th>
                         </tr>
                       </thead>
-                      <!-- <tfoot>
-                        <tr>
-                          <th>#</th>
-                          <th>DESCRIPCIÓN</th>
-                        </tr>
-                      </tfoot> -->
                     </table>
                   </div>
                   <!-- /.card-body -->

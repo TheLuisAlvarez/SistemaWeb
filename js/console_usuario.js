@@ -94,13 +94,13 @@ function listar_usuario() {
       type: "POST",
     },
     columns: [
-      { defaultContent: ""},
+      { defaultContent: "" },
       { data: "cod_usr" },
       { data: "usuario" },
       {
         defaultContent:
-         "<button class='mostrar_datos btn btn-primary btn-sm'><i class='fas fa-eye'></i></button>",
-     },
+          "<button class='mostrar_datos_usuario btn btn-primary btn-sm'><i class='fas fa-eye'></i></button>",
+      },
     ],
     fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
       $($(nRow).find("td")[3]).css("text-align", "center");
@@ -108,8 +108,6 @@ function listar_usuario() {
     language: idioma_espanol,
     select: true,
   });
-
-
 
   //  document.getElementById("tabla_usuario_filter").style.display = "none";
 
@@ -131,19 +129,6 @@ function listar_usuario() {
       });
   });
 }
-
-// agrega un listener del evento on('click') para capturar cuando se presiona un botón
-$("#tabla_usuario").on("click", ".mostrar_datos", function () {
-  // cuando eso suceda, captura el valor de la primer columna, y asígnalo al input donde quieres mostrarlo
-  var codUsuario = $(this).closest("tr").find("td:eq(1)").text();
-  $('#usuario').val(codUsuario);
-
-  listar_usuario_rol();
-  listar_usuario_grupo();
-  listar_usuario_ventana();
-});
-
-
 
 function listar_usuario_rol() {
   var cod_usr = $("#usuario").val();
@@ -197,7 +182,14 @@ function listar_usuario_grupo() {
         cod_usr: cod_usr,
       },
     },
-    columns: [{ defaultContent: "" }, { data: "descripcion" }],
+    columns: [
+      { defaultContent: "" },
+      { data: "descripcion" },
+      {
+        defaultContent:
+          "<button class='mostrar_datos_grupo btn btn-primary btn-sm'><i class='fas fa-eye'></i></button>",
+      },
+    ],
     language: idioma_espanol,
     select: true,
   });
@@ -213,9 +205,12 @@ function listar_usuario_grupo() {
   });
 }
 
+var t_usuario_ventana;
 function listar_usuario_ventana() {
   var cod_usr = $("#usuario").val();
-  t_usuario = $("#tabla_usuario_ventana").DataTable({
+  var cod_grupo = $("#grupo").val();
+
+  t_usuario_ventana = $("#tabla_usuario_ventana").DataTable({
     ordering: false,
     searching: false,
     paging: false,
@@ -230,16 +225,20 @@ function listar_usuario_ventana() {
       type: "POST",
       data: {
         cod_usr: cod_usr,
+        cod_grupo: cod_grupo,
       },
     },
     columns: [{ defaultContent: "" }, { data: "title" }],
+    fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+      $($(nRow).find("td")[3]).css("text-align", "center");
+    },
     language: idioma_espanol,
     select: true,
   });
 
-  t_usuario.on("draw.dt", function () {
+  t_usuario_ventana.on("draw.dt", function () {
     var PageInfo = $("#tabla_usuario_ventana").DataTable().page.info();
-    t_usuario
+    t_usuario_ventana
       .column(0, { page: "current" })
       .nodes()
       .each(function (cell, i) {
@@ -247,3 +246,24 @@ function listar_usuario_ventana() {
       });
   });
 }
+
+// agrega un listener del evento on('click') para capturar cuando se presiona un botón
+$("#tabla_usuario").on("click", ".mostrar_datos_usuario", function () {
+  // cuando eso suceda, captura el valor de la primer columna, y asígnalo al input donde quieres mostrarlo
+  var codUsuario = $(this).closest("tr").find("td:eq(1)").text();
+  $("#usuario").val(codUsuario);
+
+  listar_usuario_rol();
+  listar_usuario_grupo();
+  t_usuario_ventana.clear().draw();
+  
+}); 
+
+// agrega un listener del evento on('click') para capturar cuando se presiona un botón
+$("#tabla_usuario_grupo").on("click", ".mostrar_datos_grupo", function () {
+  // cuando eso suceda, captura el valor de la primer columna, y asígnalo al input donde quieres mostrarlo
+  var grupo = $(this).closest("tr").find("td:eq(1)").text();
+  $("#grupo").val(grupo);
+
+  listar_usuario_ventana();
+});
