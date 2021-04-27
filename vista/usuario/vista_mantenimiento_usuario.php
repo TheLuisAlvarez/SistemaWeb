@@ -100,8 +100,5 @@
     <script >
         $(document).ready(function(){
             listar_usuario();
-            listar_usuario_rol();
-            listar_usuario_grupo();
-            listar_usuario_ventana();
         })
     </script>

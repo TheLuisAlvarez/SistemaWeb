@@ -229,9 +229,6 @@ function listar_usuario_ventana() {
       },
     },
     columns: [{ defaultContent: "" }, { data: "title" }],
-    fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-      $($(nRow).find("td")[3]).css("text-align", "center");
-    },
     language: idioma_espanol,
     select: true,
   });

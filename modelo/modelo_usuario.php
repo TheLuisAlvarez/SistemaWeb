@@ -74,7 +74,7 @@
         }
 
         function listar_usuario_ventana($cod, $cod_grupo){
-            $sql ="SELECT DISTINCT title from v_acceso where cod_usr = '$cod' and descripcion = '$cod_grupo'";
+            $sql ="SELECT title from v_acceso where cod_usr = '$cod' and descripcion = '$cod_grupo'";
             $arreglo = array();
             if ($consulta = $this->conexion_prueba->conexion_prueba->query($sql)) {
                 while ($consulta_VU = mysqli_fetch_assoc($consulta)) {
